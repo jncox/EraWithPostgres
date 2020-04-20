@@ -50,7 +50,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Nutanix Databases with Era Bootcamp'
+project = u'Nutanix Databases: Era with Postgres Bootcamp'
 copyright = u'2020 Nutanix'
 author = u'Nutanix Global Technical Enablement'
 

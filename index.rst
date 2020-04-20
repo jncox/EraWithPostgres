@@ -1,4 +1,4 @@
-.. title:: Nutanix Databases with Era Bootcamp
+.. title:: Databases: Era with Postgres Bootcamp
 
 .. toctree::
   :maxdepth: 2
@@ -27,7 +27,7 @@
 Getting Started
 ---------------
 
-Welcome to the Nutanix Databases with Era Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix technologies and many common management tasks.
+Welcome to the Databases: Era with Postgres Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix technologies and many common management tasks.
 
 You will explore Prism Element and become familiar with its features and navigation. You will use Prism to perform basic cluster administration tasks, including storage and networking. You will also walk through basic VM deployment and management tasks with Prism and AHV. Finally, you will explore VM data protection, including snapshots and replication. The instructor explains the exercises and answers any additional questions that you may have.
 
@@ -45,10 +45,6 @@ Agenda
 ++++++
 
 - Introductions
-- Deploy MSSSql
-- Cloning a Databases
-- Setup a AAG
-- Using with Flow
 - Provisioning a Postgres DB
 - Cloning a Postgres DB
 - Era API Explorer
@@ -248,5 +244,5 @@ Nutanix Version Info
 ++++++++++++++++++++
 
 - **AHV Version** - AHV 20170830.337
-- **AOS Version** - 5.11.2.3
-- **PC Version** - 5.11.2.1
+- **AOS Version** - 5.11.x
+- **PC Version** - 5.16.1.2

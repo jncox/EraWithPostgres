@@ -1,20 +1,11 @@
-.. _era_provision_postgresdb:
+.. _provision_postgresdb:
 
 --------------------------
-Era: Provision Postgres DB
+Provision Postgres DB
 --------------------------
 
 Overview
 ++++++++
-
-.. note::
-
-  Estimated time to complete: **30 MINUTES**
-
-This lab will show you how to provision, connect, and view a Postgres Database.
-
-Provisioning a PostgreSQL Database
-++++++++++++++++++++++++++++++++++
 
 The initial release of Era supports the following Operating Systems and Database Servers:
 
@@ -28,13 +19,43 @@ The initial release of Era supports the following Operating Systems and Database
 
 Era can be used to provision database servers and databases on the registered Nutanix cluster, or you can register an existing source database running on the cluster. In this lab, you will provision a new PostgreSQL database server and database.
 
-Era makes it even simpler to provision a simple PostgreSQL database by providing sample profiles for **Software**, **Compute**, and **Database Parameters**. You will explore each of these profiles to understand how they are configured.
+.. note::
 
-#. Select the **Era > Getting Started** drop down menu and click **Profiles**.
+  Estimated time to complete: **30 MINUTES**
+
+This lab will show you how to provision, connect, and view a Postgres Database.
+
+Exploring Era Resources
++++++++++++++++++++++++
+
+Era is distributed as a virtual appliance that can be installed on either AHV or ESXi. For the purposes of conserving memory resources, a shared Era server has already been deployed on your cluster.
+
+.. note::
+
+   If you're interested, instructions for the brief installation of the Era appliance can be found `here <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Era-User-Guide-v12:era-era-installing-on-ahv-t.html>`_.
+
+#. In **Prism Central > VMs > List**, identify the IP address assigned to the **EraServer-\*** VM using the **IP Addresses** column.
+
+#. Open \https://*ERA-VM-IP:8443*/ in a new browser tab.
+
+#. Login using the following credentials:
+
+   - **Username** - admin
+   - **Password** - nutanix/4u
+
+#. From the **Dashboard** dropdown, select **Administration**.
+
+#. Under **Cluster Details**, note that Era has already been configured for your assigned cluster.
+
+   .. figure:: images/6.png
+
+#. Select **Era Resources** from the left-hand menu.
+
+#. In **Era**, select **Profiles**from the dropdown menu and **Software**  from the lefthand menu.
 
    .. figure:: images/3g.png
 
-#. Select **Software** and note there are included profiles for **PostgreSQL 10.4** and **MariaDB 10.3** shipped with Era.
+#. Note there are included profiles for **PostgreSQL 10.4** and **MariaDB 10.3** shipped with Era.
 
    Additional PostgreSQL, MariaDB, SQL Server, and Oracle profiles can be created by registering database server VMs with Era.
 
@@ -42,7 +63,7 @@ Era makes it even simpler to provision a simple PostgreSQL database by providing
 
 #. Click **+ Create** and fill out the following fields:
 
-   - **Name** - Lab
+   - **Name** - *Initials*\ -Lab
    - **Description** - Lab Compute Profile
    - **vCPUs** - 1
    - **Cores per CPU** - 2
@@ -55,9 +76,10 @@ Era makes it even simpler to provision a simple PostgreSQL database by providing
 #. Click **Network**.
 
 #. Click **+ Create** and fill out the following fields:
-   - Select PostgreSQL for the database engine
-   - **Name** - Primary-PGSQL-NETWORK
-   - **Public Service vLAN** - Primary
+
+   - **Engine** - PostgreSQL
+   - **Name** - *Initials*\ -Primary-PGSQL-NETWORK
+   - **Public Service VLAN** - Secondary
 
    .. figure:: images/3f3.png
 
@@ -65,26 +87,25 @@ Era makes it even simpler to provision a simple PostgreSQL database by providing
 
 #. Select **Database Parameters > DEFAULT_POSTGRES_PARAMS** and note the default parameters for a PostgreSQL database provisioned by Era.
 
-#. Select the **Era > Profiles** drop down menu and click **Getting Started**.
+Provisioning a PostgreSQL Database
+++++++++++++++++++++++++++++++++++
 
-#. On the **Getting Started** page, click the **PostgreSQL** button under **Provision a Database**.
+You've completed all the one time operations required to be able to provision any number of DB Server VMs. Follow the steps below to provision a database of a fresh database server, with best practices automatically applied by Era.
 
-   .. figure:: images/4b2.png
+#. In **Era**, select **Databases** from the dropdown menu and **Sources** from the lefthand menu.
 
-#. Click **Provision a Database**.
+#. Click **+ Provision > Single Node Database**.
 
-   .. figure:: images/4c.png
+#. In the **Provision a Database** wizard, fill out the following fields to configure the Database Server:
 
-#. Select the **PostgreSQL** engine and click **Next**.
-
-#. Fill out the following **Database Server** fields:
-
+   - **Engine** - PostgresSQL
    - **Database Server** - Select **Create New Server**
-   - **Database Server Name** - *Initials*-DBServer
-   - **Compute Profile** - Lab
-   - **Network Profile** - DEFAULT_POSTGRES_NETWORK
+   - **Database Server Name** - *Initials*\ -PostgresSQL
+   - **Description** - (Optional)
    - **Software Profile** - POSTGRES_10.4_OOB
-   - **Description** - (Optional) Description
+   - **Compute Profile** - *Initials*\ -Lab
+   - **Network Profile** - *Initials*\ -Primary-PGSQL-NETWORK
+   - **Database Time Zone** - America/Los_Angeles
    - **SSH Public Key for Node Access** - Select **Text**
 
    .. code-block:: text
@@ -118,7 +139,7 @@ Era makes it even simpler to provision a simple PostgreSQL database by providing
 
 #. Fill out the following **Time Machine** fields:
 
-   - **Name** - *Initials*\_LabDB_TM
+   - **Name** - *Initials*\_LabDB_tm
    - **Description** - (Optional) Description
    - **SLA** - DEFAULT_OOB_GOLD_SLA
    - **Schedule** - Default
@@ -127,7 +148,7 @@ Era makes it even simpler to provision a simple PostgreSQL database by providing
 
 #. Click **Provision**.
 
-#. Click **Operations** in the upper right-hand corner to view the provisioning progress. Provisioning should take approximately 5 minutes.
+#. Select **Operations** from the dropdown menu to monitor the provisioning. This process should take approximately 5 minutes.
 
    .. note::
 
@@ -146,7 +167,7 @@ Connecting to the Database
 
 Now that Era has successfully provisioned a database instance, you will connect to the instance and verify the database was created.
 
-#. Select **Era > Databases** from the drop down menu.
+#. In **Era**, select **Databases** from the drop down menu.
 
 #. Under **Sources**, click the name of your database.
 
@@ -156,7 +177,7 @@ Now that Era has successfully provisioned a database instance, you will connect 
 
    .. figure:: images/5b.png
 
-#. Using *Initials*\ **-Windows-ToolsVM**, open **pgAdmin**.
+#. Using *Initials*\ **-WinToolsVM**, open **pgAdmin**.
 
    .. note::
 

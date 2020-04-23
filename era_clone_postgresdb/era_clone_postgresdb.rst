@@ -1,7 +1,7 @@
-.. _era_clone_postgresdb:
+.. _clone_postgresdb:
 
 ----------------------
-Era: Clone Postgres DB
+Clone Postgres DB
 ----------------------
 
 Overview
@@ -18,7 +18,7 @@ Cloning Your PostgreSQL Source
 
 Now that you have created a source database, you can easily clone it using Era Time Machine. Database clones are helpful for development and testing purposes, allowing non-production environments to utilize product data without impacting production operations. Era clones utilize Nutanix-native copy-on-write cloning technology, allowing for zero-byte database clones. This space efficiency can significantly lower storage costs for environments supporting large numbers of database clones.
 
-#. In **Era > Time Machines**, select the Time Machine instance for your source database.
+#. In **Era**, select **Time Machines**, select the Time Machine instance for your source database (*Initials*\_LabDB_tm).
 
    .. figure:: images/16a2.png
 
@@ -28,9 +28,7 @@ Now that you have created a source database, you can easily clone it using Era T
 
 #. Click **Create**.
 
-   You can monitor the **Create Snapshot** job in **Era > Operations**.
-
-   .. figure:: images/18a2.png
+#. Select **Operations** from the dropdown menu to monitor the provisioning. This process should take approximately 5 minutes.
 
 #. After the snapshot job completes, select the Time Machine instance for your source database (*Initials*\_LabDB_tm) in **Era > Time Machines** and click **Actions** > **Clone Database**.
 
@@ -47,9 +45,9 @@ Now that you have created a source database, you can easily clone it using Era T
 #. On the **Database Server** tab, fill out the following fields:
 
    - **Database Server** - Create New Server
-   - **Database Server Name** - *Initials*-DBServer-Clone
-   - **Compute Profile** - Lab
-   - **Network Profile** - DEFAULT_OOB_NETWORK
+   - **Database Server Name** - *Initials*-PostgresSQL_Clone
+   - **Compute Profile** - *Initials*\ -Lab
+   - **Network Profile** - *Initials*\ -Primary-PGSQL-NETWORK
    - **SSH Public Key** -
 
    .. code-block:: text
@@ -71,9 +69,9 @@ Now that you have created a source database, you can easily clone it using Era T
 
 #. Click **Clone**.
 
-   The cloning process will take approximately the same amount of time as provisioning the original database and can be monitored in **Era > Operations**.
+#. Select **Operations** from the dropdown menu to monitor the provisioning. This process should take approximately 5-10 minutes.
 
-   While waiting for the clone to complete, explore **Era > SLAs** to understand the differences between standard SLAs offered by Era, or create your own custom SLA.
+#. While waiting for the clone to complete, explore **Era > SLAs** to understand the differences between standard SLAs offered by Era, or create your own custom SLA.
 
    .. figure:: images/21b.png
 
@@ -121,11 +119,13 @@ The ability to easily refresh a cloned database using new data from the source d
 
    In this case, you just created the **products** table in your source database, so a manual execution of **Log Catch Up** would be required to copy transactional logs to Era from your source database.
 
-#. In **Era > Time Machines**, select the Time Machine instance for your source database and click **Actions** > **Log Catch Up > Yes**.
+#. In **Era**, select **Time Machines**, select the Time Machine instance for your source database and click **Actions** > **Log Catch Up > Yes**.
 
    .. figure:: images/27c.png
 
-#. Once the **Log Catchup** job completes, in **Era > Databases > Clones**, select the clone of your source database and click **Refresh**.
+#. Select **Operations** from the dropdown menu to monitor the provisioning. This process should take approximately 5-10 minutes.
+
+#. Once the **Log Catchup** job completes, select **Databases > Clones**, select the clone of your source database and click **Refresh**.
 
    .. figure:: images/27b2.png
 
@@ -133,9 +133,7 @@ The ability to easily refresh a cloned database using new data from the source d
 
    .. figure:: images/27d.png
 
-#. Observe the steps taken by Era to refresh the cloned database in **Operations**.
-
-   .. figure:: images/27e.png
+#. Select **Operations** from the dropdown menu to monitor the provisioning. This process should take approximately 5-10 minutes.
 
 #. Once the **Refresh Clone** job is complete, refresh the **Tables** view of your clone database in **pgAdmin** and confirm the **products** table is now present.
 

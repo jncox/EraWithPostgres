@@ -6,7 +6,7 @@
   :name: _era_postgres
   :hidden:
 
-  gettingstarted/gettingstarted
+  labsetup/labsetup
   era_provision_postgresdb/era_provision_postgresdb
   era_clone_postgresdb/era_clone_postgresdb
   era_rest_api/era_rest_api
@@ -45,6 +45,7 @@ Agenda
 ++++++
 
 - Introductions
+- Lab Setup
 - Provisioning a Postgres DB
 - Cloning a Postgres DB
 - Era API Explorer

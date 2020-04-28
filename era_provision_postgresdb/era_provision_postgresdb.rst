@@ -51,7 +51,7 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
 
 #. Select **Era Resources** from the left-hand menu.
 
-#. In **Era**, select **Profiles**from the dropdown menu and **Software**  from the lefthand menu.
+#. In **Era**, select **Profiles** from the dropdown menu and **Software**  from the lefthand menu.
 
    .. figure:: images/3g.png
 

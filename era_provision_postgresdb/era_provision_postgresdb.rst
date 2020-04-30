@@ -71,21 +71,35 @@ Era is distributed as a virtual appliance that can be installed on either AHV or
 
    .. figure:: images/3f2.png
 
-#. Click **Create**.
+#. Review the configured Networks. If no Networks show under **VLANs Available for Network Profiles**, click **Add**. Select **Secondary** VLAN and click **Add**.
 
-#. Click **Network**.
+   .. note::
 
-#. Click **+ Create** and fill out the following fields:
+      Leave **Manage IP Address Pool** unchecked, as we will be leveraging the cluster's IPAM to manage addresses
+
+   .. figure:: images/era_networks_001.png
+
+#. From the dropdown menu, select **SLAs**.
+
+   .. figure:: images/7a.png
+
+   Era has five built-in SLAs (Gold, Silver, Bronze, Zero, and Brass). SLAs control how the database server is backed up. This can be with a combination of Continuous Protection, Daily, Weekly Monthly and Quarterly protection intervals.
+
+#. From the dropdown menu, select **Profiles**.
+
+   Profiles pre-define resources and configurations, making it simple to consistently provision environments and reduce configuration sprawl. For example, Compute Profiles specifiy the size of the database server, including details such as vCPUs, cores per vCPU, and memory.
+
+#. If you do not see any networks defined under **Network**, click **+ Create**.
+
+   .. figure:: images/8.png
+
+#. Fill out the following fields and click **Create**:
 
    - **Engine** - PostgreSQL
-   - **Name** - *Initials*\ -Primary-PGSQL-NETWORK
+   - **Name** - Primary-PGSQL-NETWORK
    - **Public Service VLAN** - Secondary
 
    .. figure:: images/3f3.png
-
-#. Click **Create**
-
-#. Select **Database Parameters > DEFAULT_POSTGRES_PARAMS** and note the default parameters for a PostgreSQL database provisioned by Era.
 
 Provisioning a PostgreSQL Database
 ++++++++++++++++++++++++++++++++++
@@ -104,7 +118,7 @@ You've completed all the one time operations required to be able to provision an
    - **Description** - (Optional)
    - **Software Profile** - POSTGRES_10.4_OOB
    - **Compute Profile** - *Initials*\ -Lab
-   - **Network Profile** - *Initials*\ -Primary-PGSQL-NETWORK
+   - **Network Profile** - Primary-PGSQL-NETWORK
    - **Database Time Zone** - America/Los_Angeles
    - **SSH Public Key for Node Access** - Select **Text**
 
@@ -160,7 +174,7 @@ You've completed all the one time operations required to be able to provision an
 
    .. figure:: images/4i2.png
 
-   You should also be able to see the *Initials*-**DBServer** VM running within Prism.
+   You should also be able to see the *Initials*\ -PostgresSQL VM running within Prism.
 
 Connecting to the Database
 ++++++++++++++++++++++++++
@@ -191,7 +205,7 @@ Now that Era has successfully provisioned a database instance, you will connect 
 
 #. On the **Connection** tab, fill out the following fields:
 
-   - **Hostname/IP Address** - *Initials*-DBServer IP Address
+   - **Hostname/IP Address** - *Initials*\ -PostgresSQL
    - **Port** - 5432
    - **Maintenance Database** - postgres
    - **Username** - postgres

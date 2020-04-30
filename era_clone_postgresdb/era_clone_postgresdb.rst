@@ -47,7 +47,7 @@ Now that you have created a source database, you can easily clone it using Era T
    - **Database Server** - Create New Server
    - **Database Server Name** - *Initials*-PostgresSQL_Clone
    - **Compute Profile** - *Initials*\ -Lab
-   - **Network Profile** - *Initials*\ -Primary-PGSQL-NETWORK
+   - **Network Profile** - Primary-PGSQL-NETWORK
    - **SSH Public Key** -
 
    .. code-block:: text
@@ -86,7 +86,7 @@ Refreshing A Cloned Database
 
 The ability to easily refresh a cloned database using new data from the source database improves development, test, and other use cases by ensuring they have access to new and relevant data. In this section you will add a new table for storing data to your source database, and refresh the existing clone.
 
-#. In **pgAdmin**, select your source database (**NOT** the cloned database), and from the menu bar click **Tools > Query Tool**.
+#. In **pgAdmin**, select your source database (**NOT** the cloned database), and from the menu bar click **Tools > Query Tool** (Maximizing the PGAdmin may be helpful to see the Tools Menu).
 
    .. figure:: images/25a2.png
 

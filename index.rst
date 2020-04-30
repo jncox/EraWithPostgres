@@ -9,6 +9,13 @@
   labsetup/labsetup
   era_provision_postgresdb/era_provision_postgresdb
   era_clone_postgresdb/era_clone_postgresdb
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Optional Labs
+  :name: _optional_labs
+  :hidden:
+
   era_rest_api/era_rest_api
 
 .. toctree::
@@ -29,15 +36,13 @@ Getting Started
 
 Welcome to the Databases: Era with Postgres Bootcamp! This workbook accompanies an instructor-led session that introduces Nutanix technologies and many common management tasks.
 
-You will explore Prism Element and become familiar with its features and navigation. You will use Prism to perform basic cluster administration tasks, including storage and networking. You will also walk through basic VM deployment and management tasks with Prism and AHV. Finally, you will explore VM data protection, including snapshots and replication. The instructor explains the exercises and answers any additional questions that you may have.
-
-At the end of the bootcamp, attendees should understand the Core concepts and technologies that make up the Nutanix Enterprise Cloud stack and should be well prepared for a hosted or onsite proof-of-concept (POC) engagement.
 
 What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
-    - AOS & PC 5.11.2.x
+    - AOS 5.11.x / 5.15.x / 5.16.x
+    - PC 5.16.x
 
 - Optional Lab Updates:
 
@@ -48,6 +53,9 @@ Agenda
 - Lab Setup
 - Provisioning a Postgres DB
 - Cloning a Postgres DB
+
+Optional labs:
+
 - Era API Explorer
 
 Introductions

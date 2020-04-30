@@ -33,35 +33,35 @@ Maintaining the status quo leads to inefficient usage of both storage and worse,
 
 Nutanix Era provides DBaaS for your Enterprise Cloud. Leveraging the Nutanix Enterprise Cloud OS, we are able to take advantage of the power of full stack - data, compute, and software. Nutanix Era hides the complexity of database operations and provides common APIs, CLI, and consumer-grade GUI experience for multiple database engines. It makes database operations such as cloning efficient, thereby driving down the TCO of database management for our customers.
 
-In this track you'll walk in an administrator's shoes to manually deploy a Microsoft SQL database VM on AHV, and observe first hand how Day 1 and Day 2+ management of that workload can be transformed with Nutanix Era. In addition to Era, you'll see how additional products like Flow and Prism Pro complement database workloads on Nutanix.
 
-Configuring a Project
-+++++++++++++++++++++
 
-In this lab you will leverage multiple pre-built Calm Blueprints to provision your applications...
+..  Configuring a Project
+  +++++++++++++++++++++
 
-#. In **Prism Central**, select :fa:`bars` **> Services > Calm**.\
+  In this lab you will leverage multiple pre-built Calm Blueprints to provision your applications...
 
-#. Select **Projects** from the lefthand menu and click **+ Create Project**.
+  #. In **Prism Central**, select :fa:`bars` **> Services > Calm**.\
 
-   .. figure:: images/2.png
+  #. Select **Projects** from the lefthand menu and click **+ Create Project**.
 
-#. Fill out the following fields:
+     .. figure:: images/2.png
 
-   - **Project Name** - *Initials*\ -Project
-   - Under **Users, Groups, and Roles**, select **+ User**
-      - **Name** - Administrators
-      - **Role** - Project Admin
-      - **Action** - Save
-   - Under **Infrastructure**, select **Select Provider > Nutanix**
-   - Click **Select Clusters & Subnets**
-   - Select *Your Assigned Cluster*
-   - Under **Subnets**, select **Primary**, **Secondary**, and click **Confirm**
-   - Mark **Primary** as the default network by clicking the :fa:`star`
+  #. Fill out the following fields:
 
-   .. figure:: images/3.png
+     - **Project Name** - *Initials*\ -Project
+     - Under **Users, Groups, and Roles**, select **+ User**
+        - **Name** - Administrators
+        - **Role** - Project Admin
+        - **Action** - Save
+     - Under **Infrastructure**, select **Select Provider > Nutanix**
+     - Click **Select Clusters & Subnets**
+     - Select *Your Assigned Cluster*
+     - Under **Subnets**, select **Primary**, **Secondary**, and click **Confirm**
+     - Mark **Primary** as the default network by clicking the :fa:`star`
 
-#. Click **Save & Configure Environment**.
+     .. figure:: images/3.png
+
+  #. Click **Save & Configure Environment**.
 
 Deploying a Windows Tools VM
 ++++++++++++++++++++++++++++
